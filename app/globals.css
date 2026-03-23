@@ -246,7 +246,7 @@ body {
 }
 
 html {
-  scrollbar-gutter: stable;
+  scrollbar-gutter: auto;
 }
 
 html.no-stable-gutter {

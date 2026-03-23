@@ -23,7 +23,7 @@
   position: relative;
   margin: 0px 6px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .question {

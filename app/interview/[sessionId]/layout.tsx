@@ -4,7 +4,7 @@ import InterviewProvider, {
 import InterviewInProgressOverlay from '@/components/interview-progress/overlays/InterviewInProgressOverlay';
 import InterviewCompletedOverlay from '@/components/interview-progress/overlays/InterviewCompletedOverlay';
 import InterviewNotFoundOverlay from '@/components/interview-progress/overlays/InterviewNotFoundOverlay';
-import { getInterviewSessionDetailClient } from '@/utils/services/interview-session.client';
+import { getInterviewSessionDetail } from '@/utils/services/interview-session';
 
 export default async function Layout({
   children,
@@ -14,7 +14,7 @@ export default async function Layout({
   params: Promise<{ sessionId: string }>;
 }) {
   const { sessionId } = await params;
-  const data = await getInterviewSessionDetailClient(sessionId);
+  const data = await getInterviewSessionDetail(sessionId);
 
   if (!data) {
     return <InterviewNotFoundOverlay />;
