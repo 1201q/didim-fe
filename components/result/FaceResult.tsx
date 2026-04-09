@@ -22,7 +22,7 @@ type FaceTimelinePoint = {
   negativeRatio: number; // 0~1 : 부정 표정 비율
 };
 
-export type FaceSummary = {
+type FaceSummary = {
   gazeCenterRatio: number;
   positiveEmotionRatio: number;
 
@@ -134,7 +134,7 @@ const FaceResult = ({ data }: { data: FaceFrameState[] }) => {
   );
 };
 
-export const FaceTimeChart = ({ frames }: { frames: FaceFrameState[] }) => {
+const FaceTimeChart = ({ frames }: { frames: FaceFrameState[] }) => {
   const raw = buildFaceTimeline(frames, 1500);
 
   if (!raw.length) {

@@ -12,7 +12,7 @@ const POSITIVE_EMOTIONS: Emotion[] = ['happy', 'surprise', 'neutral'];
 // types
 type EMOTION_TYPE = 'positive' | 'negative';
 
-export const emotionBuffer$ = detectedFaceResult$.pipe(
+const emotionBuffer$ = detectedFaceResult$.pipe(
   filter(
     (face): face is FaceResult =>
       !!face && !!face.emotion && face.emotion.length > 0,
@@ -23,7 +23,7 @@ export const emotionBuffer$ = detectedFaceResult$.pipe(
 );
 
 // 메인 스트림
-export const stableEmotionVotes$ = emotionBuffer$.pipe(
+const stableEmotionVotes$ = emotionBuffer$.pipe(
   map((window) => {
     const votes: Record<EMOTION_TYPE, number> = {
       positive: 0,

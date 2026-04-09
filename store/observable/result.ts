@@ -5,7 +5,7 @@ import { stableEmotionState$ } from './emotion';
 import { FaceFrameState } from '@/utils/types/analysis';
 
 // 답변 프레임 상태 스트림
-export const faceFrameState$ = stableGazeState$.pipe(
+const faceFrameState$ = stableGazeState$.pipe(
   withLatestFrom(stableEmotionState$),
   map(
     ([gaze, emotion]): FaceFrameState => ({

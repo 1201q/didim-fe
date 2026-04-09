@@ -21,15 +21,15 @@ const WINDOW_MS = 500;
 const SLIDE_MS = 200;
 
 // types
-export type GazeDirection = 'left' | 'right' | 'up' | 'down' | 'center';
+type GazeDirection = 'left' | 'right' | 'up' | 'down' | 'center';
 
-export const gestureBuffer$ = detectedGestureResults$.pipe(
+const gestureBuffer$ = detectedGestureResults$.pipe(
   bufferTime(WINDOW_MS, SLIDE_MS),
   map((results: GestureResult[][]) => results.flat()),
   filter((arr) => arr.length > 0),
 );
 
-export const stableGazeVotes$ = gestureBuffer$.pipe(
+const stableGazeVotes$ = gestureBuffer$.pipe(
   map((flat) => {
     const facingVotes: Record<GazeDirection, number> = {
       left: 0,
@@ -104,7 +104,7 @@ export const stableGazeVotes$ = gestureBuffer$.pipe(
   }),
 );
 
-export const stableGazeDirection$ = stableGazeVotes$.pipe(
+const stableGazeDirection$ = stableGazeVotes$.pipe(
   map(({ facingVotes, irisVotes, blink }) => {
     const combined: Record<GazeDirection, number> = {
       left: facingVotes.left + irisVotes.left,

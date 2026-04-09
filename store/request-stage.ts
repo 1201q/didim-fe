@@ -1,15 +1,4 @@
-// export const user
-
 import { atom } from 'jotai';
-
-export type RequestStage =
-  | 'resumeText'
-  | 'jobText'
-  | 'beforeGenerating'
-  | 'generating'
-  | 'selecting';
-
-export const currentRequestStageAtom = atom<RequestStage>('resumeText');
 
 export const generatingProgressAtom = atom(0);
 

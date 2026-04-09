@@ -23,7 +23,6 @@ const ResumeUploader = () => {
 
   const [dragOver, setDragOver] = useState(false); // 드래그 중.
 
-  // const [requestStage, setRequestStage] = useAtom(currentRequestStageAtom);
   const [resumeText, setResumeText] = useAtom(resumeTextAtom);
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -97,8 +96,6 @@ const ResumeUploader = () => {
       console.log(text);
       setResumeText(text);
     }
-
-    // setRequestStage('jobText');
 
     router.push('/new-request/job');
   };
